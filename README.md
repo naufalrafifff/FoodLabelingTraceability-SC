@@ -4,7 +4,7 @@ A blockchain-based food labeling traceability system for nutrition facts verific
 
 This repository contains the smart contracts, deployment scripts, testing framework, and reproducibility materials developed for the paper:
 
-> **"Blockchain-Based Food Labeling Traceability for Nutrition Facts Verification"**
+> **"Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"**
 
 ---
 
