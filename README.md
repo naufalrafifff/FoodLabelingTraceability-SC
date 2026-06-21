@@ -320,8 +320,8 @@ This repository contains the implementation used for the experiments reported in
 
 To retrieve the exact commit hash:
 
-```bash
-git rev-parse HEAD
+```text
+096d6abe0f53a3ada30339bc15db1077190c2ebd
 ```
 
 After publication, a tagged release corresponding to the paper version will be provided.
