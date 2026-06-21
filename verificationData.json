@@ -1,0 +1,53 @@
+{
+  "cppob": {
+    "cppobId": "3001",
+    "facilityName": "Axxx Foods Processing Plant",
+    "facilityAddress": "Jl. Industri No.123, Bandung, Indonesia",
+    "issueDate": "2024-04-07",
+    "expiryDate": "2029-04-06",
+    "documentLink": "https://ipfs.io/ipfs/QmCppobDummyHash1234567890abcdef"
+  },
+  "permit": {
+    "permitId": "4211",
+    "cppobId": "3001",
+    "productName": "Cashew Milk",
+    "industry": "Axxx Foods",
+    "productType": "Beverage",
+    "approvalDate": "2024-04-07",
+    "expiryDate": "2029-04-06",
+    "documentLink": "https://ipfs.io/ipfs/QmPermitDummyHashABC1234567890"
+  },
+  "coa": {
+    "batchId": "2001",
+    "productName": "Cashew Milk",
+    "industry": "Axxx Foods",
+    "productionDate": "2024-04-07",
+    "expiryDate": "2029-04-06",
+    "permitId": "4211",
+    "isValid": true,
+    "documentLink": "https://ipfs.io/ipfs/QmCoADummyHash1234567890abcdef"
+  },
+  "nutritionFacts": [
+    {
+      "name": "Protein",
+      "unit": "g",
+      "specMin": "5",
+      "specMax": "10",
+      "actualValue": "8"
+    },
+    {
+      "name": "Lemak",
+      "unit": "g",
+      "specMin": "2",
+      "specMax": "5",
+      "actualValue": "3"
+    },
+    {
+      "name": "Karbohidrat",
+      "unit": "g",
+      "specMin": "10",
+      "specMax": "15",
+      "actualValue": "12"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+
+message: "If you use this software, please cite both this repository and the paper it accompanies."
+
+title: "Code and Reproducibility Package for: Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"
+
+authors:
+
+- family-names: "Rafif"
+  given-names: "Muhammad Naufal"
+  affiliation: "School of Economics and Business, Telkom University, Bandung, Indonesia"
+  email: "naufalrafifff@student.telkomuniversity.ac.id"
+
+- family-names: "Alamsyah"
+  given-names: "Andry"
+  affiliation: "School of Economics and Business, Telkom University, Bandung, Indonesia"
+  email: "andrya@telkomuniversity.ac.id"
+
+- family-names: "Hayu Triono"
+  given-names: "Sunu Puguh"
+  affiliation: "School of Economics and Business, Telkom University, Bandung, Indonesia"
+  email: "sunupuguhht@telkomuniversity.ac.id"
+
+version: 1.0.0
+
+date-released: 2026-06-22
+
+license: MIT
+
+repository-code: "https://github.com/<username>/FoodLabelingTraceability-SC"
+
+keywords:
+
+- blockchain
+- food traceability
+- nutrition labeling
+- food security
+- smart contracts
+- ethereum
+- supply chain
+- certificate of analysis
+- CPPOB
+- food certification
+
+preferred-citation:
+type: article
+title: "Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"
+
+authors:
+- family-names: "Rafif"
+  given-names: "Muhammad Naufal"
+- family-names: "Alamsyah"
+  given-names: "Andry"
+- family-names: "Hayu Triono"
+  given-names: "Sunu Puguh"
+
+journal: "Computers and Electronics in Agriculture"
+
+year: 2026
+
+doi: "<DOI after publication>"

@@ -1,0 +1,25 @@
+{
+  "name": "food-labeling-traceability-sc",
+  "version": "1.0.0",
+  "description": "Smart contracts and reproducibility scripts for blockchain-based food labeling traceability and nutrition facts verification.",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "gas": "REPORT_GAS=true hardhat test",
+    "deploy:local": "hardhat run scripts/deploy.js",
+    "simulate": "hardhat run scripts/simulation/simulateAll.js",
+    "stress": "hardhat run scripts/stresTest.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "chai": "^4.4.1",
+    "ethers": "^6.13.5",
+    "hardhat": "^2.22.19",
+    "hardhat-gas-reporter": "^2.2.3",
+    "mocha": "^10.8.2",
+    "solc": "^0.8.28"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
