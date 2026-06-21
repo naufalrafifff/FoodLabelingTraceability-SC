@@ -318,13 +318,19 @@ Minor timing variations may occur across hardware configurations. However, the f
 
 This repository contains the implementation used for the experiments reported in the paper.
 
-To retrieve the exact commit hash:
+**Release Tag**
+
+```text
+v1.0-paper
+```
+
+**Commit Hash**
 
 ```text
 096d6abe0f53a3ada30339bc15db1077190c2ebd
 ```
 
-After publication, a tagged release corresponding to the paper version will be provided.
+This release corresponds to the version used in the manuscript submission.
 
 ---
 
