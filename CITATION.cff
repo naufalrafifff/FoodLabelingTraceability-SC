@@ -2,7 +2,7 @@ cff-version: 1.2.0
 
 message: "If you use this software, please cite both this repository and the paper it accompanies."
 
-title: "Code and Reproducibility Package for: Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"
+title: "Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"
 
 authors:
 
@@ -27,7 +27,7 @@ date-released: 2026-06-22
 
 license: MIT
 
-repository-code: "https://github.com/<username>/FoodLabelingTraceability-SC"
+repository-code: "https://github.com/naufalrafifff/FoodLabelingTraceability-SC"
 
 keywords:
 
