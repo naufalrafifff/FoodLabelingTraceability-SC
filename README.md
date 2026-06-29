@@ -4,7 +4,7 @@ A blockchain-based food labeling traceability system for nutrition facts verific
 
 This repository contains the smart contracts, deployment scripts, testing framework, and reproducibility materials developed for the paper:
 
-> **"Blockchain-Based Food Labeling Traceability for Nutrition Facts Verification"**
+> **"Verifiable Nutrition Labeling for Food Security: A Traceability-Based Information Infrastructure"**
 
 ---
 
@@ -132,7 +132,7 @@ The experiments reported in the paper were conducted using the following environ
 Clone the repository:
 
 ```bash
-git clone https://github.com/<repository-url>.git
+git clone https://github.com/naufalrafifff/FoodLabelingTraceability-SC.git
 cd FoodLabelingTraceability-SC
 ```
 
@@ -156,24 +156,39 @@ Compiled successfully
 
 ---
 
-# 🔐 Environment Variables (Optional)
+# 🔐 Environment Variables
 
-Polygon deployment requires environment variables stored in a `.env` file:
+The experimental environment described in the manuscript requires several environment variables to configure the Polygon Mainnet fork and optional deployment.
+
+Create a `.env` file in the project root directory:
 
 ```env
-POLYGON_RPC_URL=<your_rpc_url>
-PRIVATE_KEY=<your_wallet_private_key>
+POLYGON_RPC_URL=https://polygon-mainnet.infura.io/v3/<your-infura-project-id>
+PRIVATE_KEY=<your-wallet-private-key>
+CMC_KEY=<your-coinmarketcap-api-key>
 ```
 
-These variables are **not required** to reproduce the experiments reported in the paper.
+Where:
+
+* **POLYGON_RPC_URL**: Required for creating a local Hardhat network forked from the Polygon Mainnet.
+* **PRIVATE_KEY**: Required only when deploying to an external Polygon network.
+* **CMC_KEY**: Optional. Used by `hardhat-gas-reporter` to retrieve real-time MATIC-to-USD conversion rates.
+
+For security reasons, sensitive credentials should never be committed to the repository and must be stored locally in the `.env` file.
 
 ---
 
 # 🔨 Deployment
 
-## Local Hardhat Network
+### Local Deployment
 
-Deploy contracts locally:
+Start the Hardhat node:
+
+```bash
+npx hardhat node
+```
+
+Open a second terminal and deploy the contracts:
 
 ```bash
 npm run deploy:local
@@ -203,7 +218,7 @@ After configuring the `.env` file:
 npx hardhat run scripts/deploy.js --network polygon
 ```
 
-This deployment mode is intended for external validation and development purposes and is not required to reproduce the experimental results reported in the paper.
+The repository also supports deployment to the Polygon network through the polygon network configuration defined in hardhat.config.js.
 
 ---
 
@@ -279,38 +294,75 @@ The resulting measurements correspond to Table D2 reported in the paper.
 
 ---
 
-# 🌐 Running Against a Polygon Environment (Optional)
+# 🌐 Polygon Mainnet Fork (Paper Configuration)
 
-Although all experiments reported in the paper were performed using the local Hardhat network, the repository also supports deployment to a Polygon-compatible environment.
+The experiments reported in the manuscript were conducted using a Hardhat local network configured as a fork of the Polygon Mainnet. This approach enables smart contracts to be executed in a local development environment while preserving the blockchain state, gas pricing, and token information from the Polygon Mainnet at a fixed block height.
 
-Configure:
+The original experimental configuration is equivalent to the following Hardhat setup:
 
-```env
-POLYGON_RPC_URL=<your_rpc_url>
-PRIVATE_KEY=<your_private_key>
+```javascript
+hardhat: {
+  chainId: 137,
+  forking: {
+    url: process.env.POLYGON_RPC_URL,
+    blockNumber: 55555555
+  },
+  mining: {
+    auto: false,
+    interval: 2000
+  }
+}
 ```
 
-Then deploy:
+To reproduce the experimental environment:
+
+1. Configure the required environment variables in the `.env` file.
+2. Start the local Hardhat node using the fork configuration.
+3. Deploy the smart contracts to the local fork.
+4. Execute the gas evaluation and latency testing scripts.
+
+Start the local node:
 
 ```bash
-npx hardhat run scripts/deploy.js --network polygon
+npx hardhat node
 ```
 
-This capability is provided for validation, demonstration, and future deployment scenarios. It is not required to reproduce the results reported in the paper.
+Deploy the contracts:
+
+```bash
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+Generate gas measurements (Table C2):
+
+```bash
+npm run gas
+```
+
+Generate latency measurements (Table D2):
+
+```bash
+npm run stress
+```
+
+The Polygon Mainnet fork is provided to reproduce the experimental environment described in the manuscript. Minor latency variations may occur depending on hardware specifications, RPC providers, and local execution environments.
 
 ---
 
 # 🔁 Reproducibility Notes
 
-To reproduce the results reported in the paper:
+The experiments presented in the manuscript were performed using a Hardhat local network forked from the Polygon Mainnet at block **55,555,555**.
 
-1. Install all dependencies using `npm install`
-2. Compile contracts using `npm run compile`
-3. Deploy contracts locally using `npm run deploy:local`
-4. Generate gas measurements using `npm run gas`
-5. Generate latency measurements using `npm run stress`
+To reproduce the reported results:
 
-Minor timing variations may occur across hardware configurations. However, the functional behavior and gas consumption results should remain consistent.
+1. Install the project dependencies using `npm install`.
+2. Configure the required environment variables (`POLYGON_RPC_URL`, `PRIVATE_KEY`, and optionally `CMC_KEY`).
+3. Start the local Hardhat node configured as a Polygon Mainnet fork.
+4. Deploy the smart contracts to the forked local environment.
+5. Execute `npm run gas` to reproduce the gas consumption measurements reported in Table C2.
+6. Execute `npm run stress` to reproduce the latency evaluation reported in Table D2.
+
+Gas consumption values should remain reproducible under the same compiler configuration, while latency measurements may vary depending on hardware, operating system, and RPC performance.
 
 ---
 
@@ -323,6 +375,8 @@ This repository contains the implementation used for the experiments reported in
 ```text
 v1.0-paper
 ```
+
+This tagged release represents the exact implementation used in the manuscript submission.
 
 **Commit Hash**
 
